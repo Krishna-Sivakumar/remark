@@ -1,0 +1,26 @@
+{
+  "name": "remark",
+  "version": "1.0.0",
+  "description": "a bakcend service for storing and retrieving comments on websites.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc --build tsconfig.json",
+    "prestart": "npx tsc --build tsconfig.json",
+    "start": "node dist"
+  },
+  "author": "Krishna Sivakumar",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.7.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "@types/mysql": "^2.15.19",
+    "mysql-promisify": "^1.0.2",
+    "package.json": "^2.0.1"
+  }
+}
