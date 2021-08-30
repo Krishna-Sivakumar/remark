@@ -1,7 +1,7 @@
 {
   "name": "remark",
   "version": "1.0.0",
-  "description": "a bakcend service for storing and retrieving comments on websites.",
+  "description": "a backend service for storing and retrieving comments on websites.",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
