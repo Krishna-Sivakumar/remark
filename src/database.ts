@@ -3,16 +3,15 @@ import { Comment, Status, sqlConfig } from './utils'
 
 const createStatement = `
 CREATE TABLE IF NOT EXISTS comments (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER AUTO_INCREMENT,
     name TEXT NOT NULL,
     content TEXT NOT NULL,
     urlhash TEXT NOT NULL,
     parent INTEGER,
-    FOREIGN KEY(parent) REFERENCES comments(id) ON DELETE CASCADE
+    CONSTRAINT pk_comments PRIMARY KEY (id),
+    CONSTRAINT fk_parent FOREIGN KEY(parent) REFERENCES comments(id) ON DELETE CASCADE
 );
 `
-
-const checkParentStatement = `SELECT count(*) FROM comments WHERE id = ?;`
 
 const insertCommentWithParentStatement = `INSERT INTO comments(name, content, urlhash, parent) VALUES(?, ?, ?, ?);`
 
@@ -78,8 +77,8 @@ export async function deleteComment(id: number): Promise<Status> {
 
 export async function getComments(urlhash: string): Promise<any> {
     try {
-        let [results, fields] = await query(selectCommentsStatement, [urlhash]);
-        return [results, fields]
+        let [results, _] = await query(selectCommentsStatement, [urlhash]);
+        return [results]
     } catch (err) {
         return [];
     }

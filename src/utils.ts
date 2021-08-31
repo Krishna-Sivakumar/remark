@@ -1,3 +1,5 @@
+import { readFileSync } from 'fs';
+
 export type Comment = {
     id: number,
     name: string,
@@ -12,12 +14,8 @@ export interface Status {
     id: number,
 }
 
-export let sqlConfig = {
-    connectionLimit: 10,
-    host: 'localhost',
-    user: 'user',
-    password: 'secret',
-    database: 'my_db'
-}
+export let sqlConfig = JSON.parse(
+    readFileSync("sqlConfig.json").toString()
+);
 
 export const parentNotFound = Error("parent comment not found in database")

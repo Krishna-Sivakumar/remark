@@ -2,7 +2,13 @@
   "compilerOptions": {
     "outDir": "./dist",
     "target": "es5",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": [
+      "ES2015",
+      "DOM"
+    ]
   },
-  "include": ["./src/**/*"]
+  "include": [
+    "./src/**/*"
+  ]
 }
